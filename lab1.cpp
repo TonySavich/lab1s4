@@ -102,7 +102,7 @@ int main()
 
 
 
-       if (sort[0].x != nosort[ii].x && sort[0].y != nosort[ii].y) {
+       if (sort[0].x != nosort[ii].x || sort[0].y != nosort[ii].y) {
            t++;
            sort[t] = nosort[ii];
            auto iter = nosort.cbegin();
