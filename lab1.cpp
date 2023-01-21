@@ -14,16 +14,16 @@ int main()
 
    point one, two, three, four, five;
 
-   one.x = 2;
-   one.y = 1;
-   two.x = 1;
+   one.x = 4;
+   one.y = 7;
+   two.x = 4;
    two.y = 4;
-   three.x = 4;
-   three.y = 5;
-   four.x = 5;
-   four.y = 2;
-   five.x = 3;
-   five.y = 3;
+   three.x = 5;
+   three.y = 3;
+   four.x = 9;
+   four.y = 3;
+   five.x = 2;
+   five.y = 1;
 
 
 
@@ -74,9 +74,17 @@ int main()
 
            for (int i = 0; i < nosort.size(); i++) {
 
-               if (i != e && nosort[e].x != sort[t].x && nosort[e].y != sort[t].y ) {
+               if (i != e && (nosort[e].x != sort[t].x || nosort[e].y != sort[t].y )) {
                    double d = (nosort[i].x - sort[t].x) * (nosort[e].y - sort[t].y) - (nosort[i].y - sort[t].y) * (nosort[e].x - sort[t].x);
-                   if (d < 0) {
+
+                   if (sort[t].y == nosort[e].y) {
+                       if (sort[t].y > nosort[i].y) {
+                           schet++;
+                       }
+
+
+                   }
+                   else if (d < 0) {
                        schet++;
                    }
                    
@@ -85,10 +93,22 @@ int main()
                if (nosort[e].x == sort[t].x && nosort[e].y ==  sort[t].y) {
                    schet++;
                }
+              
+
            }
 
            if (schet == 0) {
-               ii = e;
+             
+               if (t > 0) {
+                   if (nosort[e].x != sort[t - 1].x || nosort[e].y != sort[t - 1].y) {
+                       ii = e;
+                   }
+               }
+               else {
+                   ii = e;
+               }
+               
+
 
 
            }
@@ -122,4 +142,3 @@ int main()
    }
 
 }
-
